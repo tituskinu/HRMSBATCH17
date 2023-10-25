@@ -112,82 +112,76 @@ runner class - we execute all the scenarios, some of the scenarios or one of the
 based on the requirement
 
 in runners package, we will create all the test runner classes
-features - path to the features directory
-glue - it provide the step definition classes
-dry run - to generate the missing step def, we set dry run to true.
-tags - in order to execute scenarios in a group, we execute them with tags
-we use 'and' and 'or' keywords to execute base on the conditions.
-we must put, in between 2 cucumber options in runner class.
+features
+glue
+dry run
+tags
 
-as per standards/characteristic of framework
-code re-usability must be there
+there is a need through which I can execute one scenario among multiple
+same tag name must be provided in scenario as it is in runner class
+sprint 5
+sprint 1,2,3,4 - 8, 5, 7, 9
+we use 'or' keyword to execute scenarios from either conditions
+if one condition is true, it will execute the scenario
+
+we use 'and' keyword to execute the scenarios when both conditions must be true
+
+utils folder - to create common methods class so that we can use all the commmon
+functions from this class
+
+Class 4 -
+
+recap -
+test runner is a class through which we can execute all the test cases and can also control
+the flow of execution.
+
+options we add in runner class
+features - path to the feature directory
+glue - it provides the path of step definitions classes
+dry run - to generate the missing step def, we set dry run to true.
+tags - in order to execute scenarios in a group, we execute them with tags.
+we use 'and' and 'or' keyword to execute based on the conditions.
+we must put , in between 2 cucumber options in runner class.
+
+as per the standards/characteristics of framework
+code reusability must be there
 it should be easily expandable
 it should be easily understandable
 new person should be able to work with it with minimal guidance
-
+things which are used multiple places cannot be hard coded
 
 click -
 send keys -
 
-cross browser testing - when your script execute aginist multiple browser, it is closs browser
- we need
+cross browser testing - when your scripts execute against multiple browser, it is cross browser testing
 
+we need constants class to pass the path of all the constant files such as config, testdata etc.
 
-utils folder - to create common methods class so that we can use all the common functions from this class
+background - for all the common steps of the scenarios, we can write them here.
+till the time flow is same, we can take the steps. Once the flow changed, we can't take steps
 
-Class 4 -
+it is limited to one feature file. It means, for different feature files, background will be
+different.
+
+class 5 -
 recap -
-test runner is a class through which we can execute all the test  cases and can also control the flow of execution.
 
+how to pass the data from config file -
+we wrote some of the common methods in common methods class
 
- options we add in runner class
- features - path to the feature directory
- glue - it provides the path of step definitions classes
- dry run - to generate the missing step def, we set dry run to true.
- tags - in order to execute scenarios in a group, we execute them with tags.
- we use 'and' and 'or' keyword to execute based on the conditions.
- we must put , in between 2 cucumber options in runner class.
+background - common steps from all the scenarios we can take and put it under background
+**only till the flow is same**
 
- as per the standards/characteristics of framework
- code re-usability must be there
- it should be easily expandable
- it should be easily understandable
- new person should be able to work with it with minimal guidance
- things which are used multiple places cannot be hard coded
+background is applicable for one feature file.
 
- click -
- send keys -
+order of execution - background execute -> scenario execute
 
- cross browser testing - when your scripts execute against multiple browser, it is cross browser testing
+Hooks - hooks are used to write the pre condition and post condition of the project
+we need to create hooks class under steps package
+when we execute the code, hooks class will execute pre condition first and then all the
+test cases will be executed and then post condition will execute at last
 
- we need constants class to pass the path of all the constant files such as config, testdata etc.
-
- background - for all the common steps of the scenarios, we can write them here.
- till the time flow is same, we can take the steps. Once the flow changed, we can't take steps
-
- it is limited to one feature file. It means, for different feature files, background will be
- different
-
-
- class 5 -
- recap -
-
- how to pass the data from config file -
- we wrote some of the common methods in common methods class
-
- background - common steps from all scenarios we can take and put it under background
-
- ****only till the flow is same***
-
- order of execution - background execute -> scenario execute
-
- Hooks - hooks are used to write the pre condition and post condition of the project
- we need to creat hooks class under steps package
- when we execute the code, hooks class will execute pre condition first and then all the
- test case will be executed and then post condition will execute at last
-
- DONT FORGET TO COMMENT STEPS FROM ALL FUTURE FILES FOR PRE AND POST CONDITION
-
+DONT FORGET TO COMMENT STEPS FROM ALL FEATURE FILES FOR PRE AND POST CONdITION
 
 in the framework, we cannot pass any hard coded data. cucumber allows us to perform
 data driven testing
@@ -201,7 +195,6 @@ scenario outline has examples table where we keep multiple sets of data and it w
 execute based on the number of data sets
 
 order of execution -  hooks -> background -> scenario
-
 
 Page object model - it is a design pattern which says that we create separate
 individual class as per the screens of the application. such as for login screen
@@ -217,13 +210,47 @@ and we call it in constructor
 class 6 -
 
 recap -
-data driven testing - when scripts execute against multiple sets of data we call that data driven testing (ddt)
+data driven testing - when scripts execute against multiple sets of data we call it
+ddt.
 
-scenario outline we have to use to achieve ddt in cucumber with examoles table
-hooks - background -scenario -
+scenario outline we have to use to achieve ddt in cucumber with examples table
 
-hooks - in step package, we write hooks class
+hooks - background - scenario -
+
+hooks - in steps package, we write hooks class.
 @before - pre condition
-@after  -  post condition
+@after - post condition
 
-POM- page object model pattern
+POM - page object model design pattern
+we create separate classes for separate screens of the application
+
+with the help of constructor, we initialize all the web elements
+
+class 7 -
+
+recap -
+data driven testing
+we can achieve ddt using excel file when the volume of data is big
+we can achieve ddt using data table
+we can achieve ddt using examples table
+
+data table vs examples table
+data table is specific for just one step. However, examples table is for complete
+scenario
+
+page initializer class - to create objects of the classes we need centralized class
+that's why we use page initializer which we call in common methods.
+
+reporting in framework -
+it gives us the complete information of the execution.
+
+for opening the html report in
+right click on the report -> open in -> browser -> chrome
+
+
+
+maven surefire plugin we use to create a single project entity
+from here we can execute all of our test cases
+
+we should focus on buld success message for executing pom.xml file
+the way we added plugin in runnner class, we have to add plugin in pom.xml for reports
