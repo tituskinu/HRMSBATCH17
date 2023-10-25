@@ -1,5 +1,6 @@
 package runners;
 
+
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
@@ -17,8 +18,10 @@ import org.junit.runner.RunWith;
         //for actual execution, we need to set the value of it to false
         dryRun = false,
         //tags will identify the scenarios in a group and will execute all the scenarios having these tags
-        tags = "@emp"
+        //tags = "@datatable"
+        plugin = {"pretty","html:target/cucumber.html"}
 )
+
 public class RunnerClass {
     //it will be empty
 }

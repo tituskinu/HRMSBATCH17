@@ -133,7 +133,7 @@ cross browser testing - when your script execute aginist multiple browser, it is
  we need
 
 
-utils folder - to create common methods class so that we can use all the commmon functions from this class
+utils folder - to create common methods class so that we can use all the common functions from this class
 
 Class 4 -
 recap -
@@ -149,7 +149,7 @@ test runner is a class through which we can execute all the test  cases and can 
  we must put , in between 2 cucumber options in runner class.
 
  as per the standards/characteristics of framework
- code reusability must be there
+ code re-usability must be there
  it should be easily expandable
  it should be easily understandable
  new person should be able to work with it with minimal guidance
@@ -167,3 +167,63 @@ test runner is a class through which we can execute all the test  cases and can 
 
  it is limited to one feature file. It means, for different feature files, background will be
  different
+
+
+ class 5 -
+ recap -
+
+ how to pass the data from config file -
+ we wrote some of the common methods in common methods class
+
+ background - common steps from all scenarios we can take and put it under background
+
+ ****only till the flow is same***
+
+ order of execution - background execute -> scenario execute
+
+ Hooks - hooks are used to write the pre condition and post condition of the project
+ we need to creat hooks class under steps package
+ when we execute the code, hooks class will execute pre condition first and then all the
+ test case will be executed and then post condition will execute at last
+
+ DONT FORGET TO COMMENT STEPS FROM ALL FUTURE FILES FOR PRE AND POST CONDITION
+
+
+in the framework, we cannot pass any hard coded data. cucumber allows us to perform
+data driven testing
+
+data driven testing - when one scenario executed against multiple set of data, we call it
+data driven testing approach
+
+scenario vs scenario outline -
+scenario execute against one set of data from the feature file
+scenario outline has examples table where we keep multiple sets of data and it will
+execute based on the number of data sets
+
+order of execution -  hooks -> background -> scenario
+
+
+Page object model - it is a design pattern which says that we create separate
+individual class as per the screens of the application. such as for login screen
+we will create loginpage class, for dashboard screen we will create dashboardpage class
+
+we keep all the locators of the login screen in loginpage class and same we will
+do for all the classes
+
+constructor we use to initialize the object and the elements of the class
+we will call selenium page factory to initialize all the elements of the class
+and we call it in constructor
+
+class 6 -
+
+recap -
+data driven testing - when scripts execute against multiple sets of data we call that data driven testing (ddt)
+
+scenario outline we have to use to achieve ddt in cucumber with examoles table
+hooks - background -scenario -
+
+hooks - in step package, we write hooks class
+@before - pre condition
+@after  -  post condition
+
+POM- page object model pattern
