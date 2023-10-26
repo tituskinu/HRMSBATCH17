@@ -6,6 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import utils.CommonMethods;
 
 public class AddEmployeePage extends CommonMethods {
+
     @FindBy(id="firstName")
     public WebElement firstNameLoc;
 
@@ -33,8 +34,10 @@ public class AddEmployeePage extends CommonMethods {
     @FindBy(id="btnSave")
     public WebElement saveBtn;
 
+    @FindBy(id="employeeId")
+    public WebElement employeeIdLocator;
+
     public AddEmployeePage(){
         PageFactory.initElements(driver, this);
     }
-
 }
