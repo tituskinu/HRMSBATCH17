@@ -12,9 +12,10 @@ import java.util.List;
 import java.util.Map;
 
 public class ExcelReader {
+
     public static List<Map<String, String>> read(String sheetName, String path) {
         FileInputStream fileInputStream = null;
-        List<Map<String, String>> excelData = new ArrayList<>();
+        List<Map<String,String>> excelData = new ArrayList<>();
         try {
             fileInputStream = new FileInputStream(path);
             // that special call which knows how to read the data from excel files
@@ -48,6 +49,5 @@ public class ExcelReader {
             }
         }
         return excelData;
-
     }
 }

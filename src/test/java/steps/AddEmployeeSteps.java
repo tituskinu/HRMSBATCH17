@@ -179,6 +179,6 @@ public class AddEmployeeSteps extends CommonMethods {
 
         Assert.assertEquals("FirstNam from frontend is not same as backend ",firstNameFFE,firstNameFBE);
         Assert.assertEquals("MiddleName from frontend is not same as backend ",middleNameFFE,middleNameFBE);
-        Assert.assertEquals("LastName from frontend is not same as backend ",lastNameFFE,lastNameFBE);
+        Assert.assertEquals("LastNamer from frontend is not same as backend ",lastNameFFE,lastNameFBE);
     }
 }
