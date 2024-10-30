@@ -3,14 +3,14 @@ Feature: Syntax API workflow feature
   Background:
     Given a JWT is generated
 
-  @api
+  @api @update
   Scenario: create an employee via API
     Given a request is prepared to create an employee
     When a POST call is made to create an employee
     Then the status code for this request is 201
     And the employee id "Employee.employee_id" is stored as global variable for other request
 
-  @api
+  @api @update
   Scenario: get the created employee
     Given a request is prepared to get the created employee
     When a GET call is made to get the employee
@@ -20,7 +20,7 @@ Feature: Syntax API workflow feature
       |emp_firstname|emp_lastname|emp_middle_name|emp_gender|emp_birthday|emp_status|emp_job_title|
       |hind         |pak         |ms            |Male      |2002-11-25  |confirmed |QA           |
 
-  @json
+  @json @update
   Scenario: Creating the employee using json paylaod
     Given a request is prepared for creating an employee via json payload
     When a POST call is made to create an employee
